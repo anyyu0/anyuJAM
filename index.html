@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spotjam. (Shared)</title>
+    <title>anyu's jam.</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -43,93 +43,14 @@
         .tagline {
             color: #888;
             font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .share-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #333;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
-        .share-status.online {
-            color: #4CAF50;
-            border: 1px solid #4CAF50;
-        }
-
-        .share-status.offline {
-            color: #ff9800;
-            border: 1px solid #ff9800;
-        }
-
-        /* Share Section */
-        .share-section {
-            background: #181818;
-            border-radius: 8px;
-            padding: 20px;
             margin-bottom: 30px;
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        .share-controls {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            background: #222;
-            border: 1px solid #444;
-            color: #aaa;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .share-btn:hover {
-            background: #333;
-            color: #fff;
-        }
-
-        .share-btn.primary {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
-            font-weight: 600;
-        }
-
-        .share-btn.primary:hover {
-            background: #eee;
-        }
-
-        .share-link {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 12px;
-            margin: 15px 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: #4CAF50;
-            word-break: break-all;
         }
 
         /* Year Navigation */
         .year-nav {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 40px;
         }
 
@@ -195,207 +116,144 @@
             display: block;
         }
 
-        /* Diary Entry */
+        /* Diary Section */
+        .diary-section {
+            margin-bottom: 40px;
+        }
+
+        .diary-entries {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
         .diary-entry {
             background: #181818;
             border-radius: 8px;
             padding: 25px;
-            margin-bottom: 20px;
-            position: relative;
-            transition: all 0.2s;
+            transition: background 0.2s;
         }
 
         .diary-entry:hover {
             background: #222;
-            transform: translateY(-2px);
-        }
-
-        .entry-number {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
-            opacity: 0.8;
-            line-height: 1;
         }
 
         .entry-title {
             font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #fff;
-            padding-left: 40px;
-        }
-
-        .entry-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding-left: 40px;
-            margin-bottom: 10px;
         }
 
         .entry-artist {
-            color: #aaa;
-            font-size: 0.95rem;
-        }
-
-        .entry-year {
-            background: #333;
-            color: #ccc;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
+            color: #888;
+            font-size: 1rem;
+            font-weight: normal;
+            margin-left: 8px;
         }
 
         .entry-content {
             color: #aaa;
             font-size: 1rem;
             line-height: 1.6;
-            padding-left: 40px;
-        }
-
-        .entry-date {
-            color: #666;
-            font-size: 0.8rem;
-            padding-left: 40px;
             margin-top: 15px;
-            font-style: italic;
         }
 
-        /* Add Entry Form */
-        .add-entry {
-            background: #181818;
-            border-radius: 8px;
-            padding: 25px;
-            margin-top: 40px;
-            border: 1px solid #333;
+        /* Top Picks Section - NEW HORIZONTAL LAYOUT */
+        .top-section {
+            margin-bottom: 60px;
         }
 
-        .form-title {
-            font-size: 1.2rem;
+        .section-heading {
+            font-size: 1.5rem;
             color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .form-input {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 12px;
-            color: #fff;
-            font-size: 0.95rem;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #fff;
-        }
-
-        .form-textarea {
-            grid-column: 1 / -1;
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-
-        .form-submit:hover {
-            background: #eee;
-        }
-
-        /* Top Picks */
-        .top-picks {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .top-card {
-            background: #181818;
-            border-radius: 8px;
-            padding: 25px;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             text-align: center;
         }
 
-        .top-item {
-            margin-bottom: 15px;
+        .top-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .top-items-row {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
             padding-bottom: 15px;
-            border-bottom: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        .top-items-row::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .top-items-row::-webkit-scrollbar-track {
+            background: #222;
+        }
+
+        .top-items-row::-webkit-scrollbar-thumb {
+            background: #fff;
+            border-radius: 2px;
+        }
+
+        .top-item-card {
+            background: #181818;
+            border-radius: 8px;
+            padding: 25px;
+            min-width: 280px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .top-item-card:hover {
+            background: #222;
+            transform: translateY(-5px);
+            border-left-color: #fff;
         }
 
         .item-rank {
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #fff;
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
             color: #fff;
-            font-weight: 500;
-            margin-bottom: 3px;
+            margin-bottom: 8px;
         }
 
         .item-artist {
+            font-size: 1rem;
             color: #888;
-            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .item-description {
+            font-size: 0.95rem;
+            color: #aaa;
+            line-height: 1.5;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px;
             padding-top: 30px;
             border-top: 1px solid #333;
             color: #666;
             font-size: 0.9rem;
-        }
-
-        /* Admin Panel */
-        .admin-panel {
-            background: #181818;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 30px;
-            border: 1px solid #333;
-        }
-
-        .admin-title {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .admin-info {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
         }
 
         /* Responsive */
@@ -404,23 +262,29 @@
                 padding: 10px;
             }
             
-            .top-picks {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .year-nav {
+                flex-wrap: wrap;
             }
             
-            .share-controls {
-                flex-direction: column;
+            .top-items-row {
+                gap: 15px;
+            }
+            
+            .top-item-card {
+                min-width: 250px;
+                padding: 20px;
             }
             
             .diary-entry {
                 padding: 20px;
             }
             
-            .entry-number {
-                font-size: 2rem;
-                left: 15px;
-                top: -12px;
+            .item-rank {
+                font-size: 1.5rem;
+            }
+            
+            .item-name {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -428,472 +292,341 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="logo">spotjam.</h1>
-            <p class="tagline">shared music diary • everyone can contribute</p>
-            <div class="share-status online" id="share-status">
-                <span>🟢 Online & Shared</span>
-            </div>
+            <h1 class="logo">anyu's jam.</h1>
+            <p class="tagline">the diary of anyu's music.</p>
         </header>
-
-        <!-- Share Controls -->
-        <div class="share-section">
-            <h3>📡 Sharing Status</h3>
-            <div class="share-link" id="share-link">
-                Copy and share this link: https://your-username.github.io/spotjam/
-            </div>
-            <div class="share-controls">
-                <button class="share-btn" onclick="copyShareLink()">📋 Copy Link</button>
-                <button class="share-btn primary" onclick="refreshData()">🔄 Refresh Data</button>
-                <button class="share-btn" onclick="exportLocalData()">💾 Export Backup</button>
-                <button class="share-btn" onclick="importLocalData()">📂 Import Backup</button>
-            </div>
-        </div>
 
         <!-- Year Navigation -->
         <nav class="year-nav">
-            <button class="year-btn active" data-year="all">All</button>
-            <button class="year-btn" data-year="2024">2024</button>
-            <button class="year-btn" data-year="2023">2023</button>
-            <button class="year-btn" data-year="2022">2022</button>
+            <button class="year-btn active" data-year="2026">2026</button>
+            <button class="year-btn" data-year="2025">2025</button>
+            <button class="year-btn" data-year="2024-below">2024 & below</button>
         </nav>
 
         <!-- View Tabs -->
         <div class="view-tabs">
             <button class="view-btn active" data-view="diary">Diary</button>
             <button class="view-btn" data-view="tops">Top Picks</button>
-            <button class="view-btn" data-view="admin">Admin</button>
         </div>
 
         <!-- Diary View -->
         <div id="diary-view" class="content-section active">
             <div class="diary-section">
-                <div id="diary-entries" class="diary-entries">
-                    <!-- Entries loaded from Google Sheets -->
+                <div class="diary-entries">
+                    <!-- EASY TO ADD MORE ENTRIES HERE -->
+                    <!-- Copy this block and update the content -->
                     <div class="diary-entry">
-                        <div class="entry-number">#1</div>
-                        <h3 class="entry-title">Sample Entry</h3>
-                        <div class="entry-meta">
-                            <span class="entry-artist">Sample Artist</span>
-                            <span class="entry-year">2024</span>
-                        </div>
-                        <p class="entry-content">This is a sample entry. When you set up Google Sheets, your real data will appear here!</p>
-                        <div class="entry-date">Added by: You • Just now</div>
+                        <h3 class="entry-title">Birds of a Feather<span class="entry-artist">by Billie Eilish</span></h3>
+                        <p class="entry-content">Driving beat that stays with you. Perfect for late night drives when you need that extra energy.</p>
                     </div>
-                </div>
-
-                <!-- Add Entry Form -->
-                <div class="add-entry">
-                    <h3 class="form-title">Add New Entry</h3>
-                    <div class="form-grid">
-                        <input type="text" class="form-input" id="entry-title" placeholder="Song/Album title">
-                        <input type="text" class="form-input" id="entry-artist" placeholder="Artist">
-                        <select class="form-input" id="entry-year">
-                            <option value="">Select year...</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                        </select>
-                        <textarea class="form-input form-textarea" id="entry-content" placeholder="Your thoughts..."></textarea>
+                    
+                    <div class="diary-entry">
+                        <h3 class="entry-title">Read Your Mind<span class="entry-artist">by Sabrina Carpenter</span></h3>
+                        <p class="entry-content">Catchy pop with clever lyrics. On repeat all week, especially during morning routines.</p>
                     </div>
-                    <button class="form-submit" onclick="addEntry()">Add to Shared Diary</button>
+                    
+                    <div class="diary-entry">
+                        <h3 class="entry-title">The Door<span class="entry-artist">by Teddy Swims</span></h3>
+                        <p class="entry-content">Raw vocals, emotional delivery. Goosebumps every time, especially on rainy days.</p>
+                    </div>
+                    
+                    <div class="diary-entry">
+                        <h3 class="entry-title">Espresso<span class="entry-artist">by Sabrina Carpenter</span></h3>
+                        <p class="entry-content">Upbeat and perfect for summer. The chorus is absolutely addictive.</p>
+                    </div>
+                    
+                    <div class="diary-entry">
+                        <h3 class="entry-title">Not Strong Enough<span class="entry-artist">by boygenius</span></h3>
+                        <p class="entry-content">Harmonies that give you chills every single time. Perfect for reflective moments.</p>
+                    </div>
+                    
+                    <!-- Add more entries by copying above block -->
                 </div>
             </div>
         </div>
 
         <!-- Top Picks View -->
         <div id="tops-view" class="content-section">
-            <div class="top-picks">
-                <div class="top-card">
-                    <h2 class="card-title">Top Songs</h2>
-                    <div id="top-songs-list">
-                        <div class="top-item">
+            <!-- 2026 Top Picks -->
+            <div class="top-section" id="2026-tops">
+                <h2 class="section-heading">2026 Top Picks</h2>
+                
+                <!-- Top Songs Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Songs</h3>
+                    <div class="top-items-row">
+                        <!-- Song #1 -->
+                        <div class="top-item-card">
                             <div class="item-rank">#1</div>
-                            <div class="item-name">Sample Song</div>
-                            <div class="item-artist">Sample Artist</div>
+                            <div class="item-name">Wallflower</div>
+                            <div class="item-artist">Twice</div>
+                            <div class="item-description">Dreamy synth-pop with nostalgic melodies that transport you to another dimension.</div>
+                        </div>
+                        
+                        <!-- Song #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">Euphoria</div>
+                            <div class="item-artist">NewJeans</div>
+                            <div class="item-description">Upbeat summer anthem with infectious hooks that stay in your head for days.</div>
+                        </div>
+                        
+                        <!-- Song #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">Midnight Rain</div>
+                            <div class="item-artist">Taylor Swift</div>
+                            <div class="item-description">Moody production with Swift's signature storytelling about roads not taken.</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="top-card">
-                    <h2 class="card-title">Top Albums</h2>
-                    <div id="top-albums-list">
-                        <div class="top-item">
+                
+                <!-- Top Albums Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Albums</h3>
+                    <div class="top-items-row">
+                        <!-- Album #1 -->
+                        <div class="top-item-card">
                             <div class="item-rank">#1</div>
-                            <div class="item-name">Sample Album</div>
-                            <div class="item-artist">Sample Artist</div>
+                            <div class="item-name">Wallflower</div>
+                            <div class="item-artist">Twice</div>
+                            <div class="item-description">A cohesive journey through dream pop and synthwave with no skips. Their most mature work yet.</div>
+                        </div>
+                        
+                        <!-- Album #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">Hit Me Hard and Soft</div>
+                            <div class="item-artist">Billie Eilish</div>
+                            <div class="item-description">Dark pop perfection with haunting production and deeply personal lyrics.</div>
+                        </div>
+                        
+                        <!-- Album #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">Short n' Sweet</div>
+                            <div class="item-artist">Sabrina Carpenter</div>
+                            <div class="item-description">Bubblegum pop elevated with clever production and undeniable earworms.</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Admin View -->
-        <div id="admin-view" class="content-section">
-            <div class="admin-panel">
-                <h3 class="admin-title">⚙️ Setup Instructions</h3>
-                <p class="admin-info">
-                    To enable sharing, you need to set up a Google Sheet as your database:
-                </p>
+            <!-- 2025 Top Picks -->
+            <div class="top-section" id="2025-tops" style="display: none;">
+                <h2 class="section-heading">2025 Top Picks</h2>
                 
-                <div style="background: #222; padding: 15px; border-radius: 6px; margin: 20px 0;">
-                    <h4>📝 Step-by-Step Setup:</h4>
-                    <ol style="margin-left: 20px; color: #aaa; line-height: 2;">
-                        <li>Go to <a href="https://sheets.google.com" target="_blank" style="color: #4CAF50;">Google Sheets</a></li>
-                        <li>Create a new sheet with columns: Title, Artist, Year, Content, Date, AddedBy</li>
-                        <li>Publish it to the web (File → Share → Publish to web)</li>
-                        <li>Copy the sheet ID from the URL</li>
-                        <li>Paste it in the field below</li>
-                    </ol>
+                <!-- Top Songs Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Songs</h3>
+                    <div class="top-items-row">
+                        <!-- Song #1 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#1</div>
+                            <div class="item-name">Flowers</div>
+                            <div class="item-artist">Miley Cyrus</div>
+                            <div class="item-description">Empowering breakup anthem with an unforgettable disco-inspired beat.</div>
+                        </div>
+                        
+                        <!-- Song #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">What Was I Made For?</div>
+                            <div class="item-artist">Billie Eilish</div>
+                            <div class="item-description">Hauntingly beautiful ballad that captures existential longing perfectly.</div>
+                        </div>
+                        
+                        <!-- Song #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">Not Strong Enough</div>
+                            <div class="item-artist">boygenius</div>
+                            <div class="item-description">Three-part harmonies that give you chills every single listen.</div>
+                        </div>
+                    </div>
                 </div>
-
-                <div style="margin: 20px 0;">
-                    <input type="text" class="form-input" id="sheet-id" placeholder="Paste your Google Sheet ID here" style="width: 100%;">
-                    <button class="form-submit" style="margin-top: 10px; width: 100%;" onclick="saveSheetId()">
-                        Save Sheet ID
-                    </button>
+                
+                <!-- Top Albums Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Albums</h3>
+                    <div class="top-items-row">
+                        <!-- Album #1 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#1</div>
+                            <div class="item-name">Endless Summer Vacation</div>
+                            <div class="item-artist">Miley Cyrus</div>
+                            <div class="item-description">A sun-drenched journey through disco, pop, and rock influences.</div>
+                        </div>
+                        
+                        <!-- Album #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">the record</div>
+                            <div class="item-artist">boygenius</div>
+                            <div class="item-description">Indie rock perfection with songwriting that cuts straight to the heart.</div>
+                        </div>
+                        
+                        <!-- Album #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">Ocean Blvd</div>
+                            <div class="item-artist">Lana Del Rey</div>
+                            <div class="item-description">Cinematic storytelling with her most personal and vulnerable lyrics yet.</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <p class="admin-info">
-                    🔗 <strong>Share this link with friends:</strong><br>
-                    <span id="your-share-link" style="color: #4CAF50; word-break: break-all;">https://your-username.github.io/spotjam/</span>
-                </p>
-
-                <p class="admin-info" style="margin-top: 20px;">
-                    ⚠️ Note: This uses a public Google Sheet. Anyone with the link can view and add entries.
-                    For private sharing, you'd need Firebase or a proper backend.
-                </p>
+            <!-- 2024 & Below Top Picks -->
+            <div class="top-section" id="2024-below-tops" style="display: none;">
+                <h2 class="section-heading">2024 & Below Top Picks</h2>
+                
+                <!-- Top Songs Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Songs</h3>
+                    <div class="top-items-row">
+                        <!-- Song #1 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#1</div>
+                            <div class="item-name">As It Was</div>
+                            <div class="item-artist">Harry Styles</div>
+                            <div class="item-description">Nostalgic synth-pop about change and acceptance. Impossible not to dance to.</div>
+                        </div>
+                        
+                        <!-- Song #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">Break My Soul</div>
+                            <div class="item-artist">Beyoncé</div>
+                            <div class="item-description">House music revival with an empowering message about liberation.</div>
+                        </div>
+                        
+                        <!-- Song #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">Good 4 U</div>
+                            <div class="item-artist">Olivia Rodrigo</div>
+                            <div class="item-description">Pop-punk perfection with angsty lyrics that hit just right.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Top Albums Row -->
+                <div class="top-category">
+                    <h3 class="category-title">Top Albums</h3>
+                    <div class="top-items-row">
+                        <!-- Album #1 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#1</div>
+                            <div class="item-name">Harry's House</div>
+                            <div class="item-artist">Harry Styles</div>
+                            <div class="item-description">Warm, intimate pop that feels like home. His most cohesive album.</div>
+                        </div>
+                        
+                        <!-- Album #2 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#2</div>
+                            <div class="item-name">RENAISSANCE</div>
+                            <div class="item-artist">Beyoncé</div>
+                            <div class="item-description">A celebration of dance music history and Black queer culture. Flawless.</div>
+                        </div>
+                        
+                        <!-- Album #3 -->
+                        <div class="top-item-card">
+                            <div class="item-rank">#3</div>
+                            <div class="item-name">SOUR</div>
+                            <div class="item-artist">Olivia Rodrigo</div>
+                            <div class="item-description">Teenage angst perfected. Every song is a gut punch in the best way.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <footer class="footer">
-            <p>spotjam. • shared music diary • powered by Google Sheets</p>
+            <p>spotjam. • personal music collection • white theme</p>
         </footer>
     </div>
 
     <script>
-        // ========== CONFIGURATION ==========
-        let googleSheetId = '';
-        let entries = [];
-        let isOnline = true;
-
-        // ========== GOOGLE SHEETS INTEGRATION ==========
-        async function loadFromGoogleSheets() {
-            if (!googleSheetId) {
-                googleSheetId = localStorage.getItem('spotjam_sheet_id');
-                if (!googleSheetId) {
-                    console.log('No Google Sheet ID configured');
-                    showOfflineMode();
-                    return;
-                }
-            }
-
-            try {
-                // Google Sheets JSON API URL
-                const url = `https://docs.google.com/spreadsheets/d/${googleSheetId}/gviz/tq?tqx=out:json`;
+        // Year Navigation
+        const yearBtns = document.querySelectorAll('.year-btn');
+        
+        yearBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                yearBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
+                btn.classList.add('active');
                 
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Failed to fetch');
-                
-                const text = await response.text();
-                // Remove the prefix from Google's JSON response
-                const jsonText = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-                const data = JSON.parse(jsonText);
-                
-                // Parse the table data
-                entries = parseGoogleSheetsData(data);
-                renderEntries();
-                updateTopPicks();
-                showOnlineMode();
-                
-            } catch (error) {
-                console.error('Error loading from Google Sheets:', error);
-                showOfflineMode();
-                // Fallback to local storage
-                loadLocalEntries();
-            }
-        }
-
-        function parseGoogleSheetsData(data) {
-            if (!data.table || !data.table.rows) return [];
-            
-            return data.table.rows.map((row, index) => {
-                const cells = row.c;
-                return {
-                    id: index + 1,
-                    title: cells[0] ? cells[0].v : '',
-                    artist: cells[1] ? cells[1].v : '',
-                    year: cells[2] ? cells[2].v : '',
-                    content: cells[3] ? cells[3].v : '',
-                    date: cells[4] ? cells[4].v : new Date().toISOString(),
-                    addedBy: cells[5] ? cells[5].v : 'Unknown'
-                };
+                // Update year for both views
+                const year = btn.getAttribute('data-year');
+                updateYearContent(year);
             });
-        }
-
-        // Note: Writing to Google Sheets requires Google Apps Script
-        // For simplicity, we'll use a mock function that simulates saving
-        async function saveToGoogleSheets(entry) {
-            // In a real implementation, you'd use Google Apps Script
-            // For now, we'll save locally and pretend it's shared
-            saveLocalEntry(entry);
-            
-            // Simulate network delay
-            setTimeout(() => {
-                alert('✅ Entry saved! (Note: For real sharing, setup Google Apps Script)');
-                loadFromGoogleSheets();
-            }, 500);
-        }
-
-        // ========== LOCAL STORAGE FALLBACK ==========
-        function loadLocalEntries() {
-            const entriesJSON = localStorage.getItem('spotjam_local_entries');
-            if (entriesJSON) {
-                try {
-                    entries = JSON.parse(entriesJSON);
-                    renderEntries();
-                    updateTopPicks();
-                } catch (e) {
-                    console.error('Error loading local entries:', e);
-                }
-            }
-        }
-
-        function saveLocalEntry(entry) {
-            entries.unshift(entry);
-            localStorage.setItem('spotjam_local_entries', JSON.stringify(entries));
-        }
-
-        // ========== UI FUNCTIONS ==========
-        function showOnlineMode() {
-            isOnline = true;
-            document.getElementById('share-status').innerHTML = '<span>🟢 Online & Shared</span>';
-            document.getElementById('share-status').className = 'share-status online';
-        }
-
-        function showOfflineMode() {
-            isOnline = false;
-            document.getElementById('share-status').innerHTML = '<span>🟡 Offline Mode</span>';
-            document.getElementById('share-status').className = 'share-status offline';
-        }
-
-        function copyShareLink() {
-            const link = window.location.href;
-            navigator.clipboard.writeText(link).then(() => {
-                alert('Link copied to clipboard! Share it with friends.');
-            });
-        }
-
-        function refreshData() {
-            if (googleSheetId) {
-                loadFromGoogleSheets();
-                alert('Refreshing data from Google Sheets...');
-            } else {
-                alert('No Google Sheet configured. Go to Admin tab to setup.');
-            }
-        }
-
-        function exportLocalData() {
-            const dataStr = JSON.stringify(entries, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(dataBlob);
-            link.download = `spotjam-backup-${new Date().toISOString().split('T')[0]}.json`;
-            link.click();
-        }
-
-        function importLocalData() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            input.onchange = function(e) {
-                const file = e.target.files[0];
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        entries = JSON.parse(e.target.result);
-                        localStorage.setItem('spotjam_local_entries', JSON.stringify(entries));
-                        renderEntries();
-                        updateTopPicks();
-                        alert('Data imported successfully!');
-                    } catch (error) {
-                        alert('Error importing data: ' + error.message);
-                    }
-                };
-                reader.readAsText(file);
-            };
-            input.click();
-        }
-
-        function addEntry() {
-            const title = document.getElementById('entry-title').value.trim();
-            const artist = document.getElementById('entry-artist').value.trim();
-            const year = document.getElementById('entry-year').value.trim();
-            const content = document.getElementById('entry-content').value.trim();
-            
-            if (!title || !artist || !year) {
-                alert('Please fill in title, artist, and year');
-                return;
-            }
-            
-            const newEntry = {
-                id: Date.now(),
-                title: title,
-                artist: artist,
-                year: year,
-                content: content,
-                date: new Date().toISOString(),
-                addedBy: 'You' // In real implementation, would be user's name
-            };
-            
-            if (isOnline && googleSheetId) {
-                saveToGoogleSheets(newEntry);
-            } else {
-                saveLocalEntry(newEntry);
-                renderEntries();
-                updateTopPicks();
-                alert('Entry saved locally!');
-            }
-            
-            // Clear form
-            document.getElementById('entry-title').value = '';
-            document.getElementById('entry-artist').value = '';
-            document.getElementById('entry-year').value = '';
-            document.getElementById('entry-content').value = '';
-        }
-
-        function renderEntries() {
-            const container = document.getElementById('diary-entries');
-            const selectedYear = document.querySelector('.year-btn.active').dataset.year;
-            
-            const filteredEntries = selectedYear === 'all' 
-                ? entries 
-                : entries.filter(entry => entry.year === selectedYear);
-            
-            if (filteredEntries.length === 0) {
-                container.innerHTML = `
-                    <div class="diary-entry" style="text-align: center; padding: 50px 20px;">
-                        <div class="entry-number" style="position: static; opacity: 0.3; font-size: 3rem; margin-bottom: 20px;">#</div>
-                        <h3 class="entry-title" style="padding-left: 0;">No entries yet</h3>
-                        <p class="entry-content" style="padding-left: 0; color: #666;">
-                            Be the first to add an entry!
-                        </p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = filteredEntries.map((entry, index) => {
-                const date = new Date(entry.date);
-                const dateStr = date.toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                });
-                
-                return `
-                    <div class="diary-entry" data-id="${entry.id}">
-                        <div class="entry-number">#${index + 1}</div>
-                        <h3 class="entry-title">${escapeHtml(entry.title)}</h3>
-                        <div class="entry-meta">
-                            <span class="entry-artist">${escapeHtml(entry.artist)}</span>
-                            ${entry.year ? `<span class="entry-year">${entry.year}</span>` : ''}
-                        </div>
-                        <p class="entry-content">${escapeHtml(entry.content)}</p>
-                        <div class="entry-date">
-                            Added by: ${entry.addedBy || 'Unknown'} • ${dateStr}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function updateTopPicks() {
-            // Simple: show most recent entries as "top picks"
-            const recentSongs = entries.slice(0, 5);
-            const recentAlbums = entries.slice(0, 5);
-            
-            const songsList = document.getElementById('top-songs-list');
-            const albumsList = document.getElementById('top-albums-list');
-            
-            songsList.innerHTML = recentSongs.map((entry, index) => `
-                <div class="top-item">
-                    <div class="item-rank">#${index + 1}</div>
-                    <div class="item-name">${escapeHtml(entry.title)}</div>
-                    <div class="item-artist">${escapeHtml(entry.artist)}</div>
-                </div>
-            `).join('');
-            
-            albumsList.innerHTML = recentAlbums.map((entry, index) => `
-                <div class="top-item">
-                    <div class="item-rank">#${index + 1}</div>
-                    <div class="item-name">${escapeHtml(entry.title)}</div>
-                    <div class="item-artist">${escapeHtml(entry.artist)}</div>
-                </div>
-            `).join('');
-        }
-
-        function saveSheetId() {
-            const sheetId = document.getElementById('sheet-id').value.trim();
-            if (!sheetId) {
-                alert('Please enter a Google Sheet ID');
-                return;
-            }
-            
-            localStorage.setItem('spotjam_sheet_id', sheetId);
-            googleSheetId = sheetId;
-            
-            alert('Google Sheet ID saved! Loading data...');
-            loadFromGoogleSheets();
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // ========== INITIALIZATION ==========
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved sheet ID
-            googleSheetId = localStorage.getItem('spotjam_sheet_id');
-            
-            // Try to load from Google Sheets
-            if (googleSheetId) {
-                loadFromGoogleSheets();
-            } else {
-                // Fallback to local data
-                loadLocalEntries();
-                showOfflineMode();
-            }
-            
-            // Setup tabs
-            document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    document.querySelectorAll('.content-section').forEach(s => {
-                        s.classList.remove('active');
-                    });
-                    
-                    document.getElementById(`${this.dataset.view}-view`).classList.add('active');
-                });
-            });
-            
-            // Setup year navigation
-            document.querySelectorAll('.year-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    renderEntries();
-                });
-            });
-            
-            // Update share link
-            document.getElementById('your-share-link').textContent = window.location.href;
-            document.getElementById('share-link').textContent = `Copy and share this link: ${window.location.href}`;
         });
+        
+        // View Tabs
+        const viewBtns = document.querySelectorAll('.view-btn');
+        const contentSections = document.querySelectorAll('.content-section');
+        
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                viewBtns.forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
+                btn.classList.add('active');
+                
+                // Hide all sections
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                const view = btn.getAttribute('data-view');
+                document.getElementById(`${view}-view`).classList.add('active');
+                
+                // Update year content for the new view
+                const activeYear = document.querySelector('.year-btn.active').getAttribute('data-year');
+                updateYearContent(activeYear);
+            });
+        });
+        
+        // Update content based on selected year
+        function updateYearContent(year) {
+            // For Top Picks view, show/hide the correct year section
+            if (document.getElementById('tops-view').classList.contains('active')) {
+                // Hide all year top pick sections
+                document.querySelectorAll('.top-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show the selected year section
+                document.getElementById(`${year}-tops`).style.display = 'block';
+            }
+            
+            // For Diary view, we would filter entries by year
+            console.log(`Loading content for year: ${year}`);
+        }
+        
+        // Entry hover effect
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.diary-entry')) {
+                const entry = e.target.closest('.diary-entry');
+                const title = entry.querySelector('.entry-title').textContent;
+                console.log(`Clicked diary entry: ${title}`);
+            }
+            
+            if (e.target.closest('.top-item-card')) {
+                const card = e.target.closest('.top-item-card');
+                const rank = card.querySelector('.item-rank').textContent;
+                const name = card.querySelector('.item-name').textContent;
+                const artist = card.querySelector('.item-artist').textContent;
+                console.log(`Clicked: ${rank} ${name} by ${artist}`);
+            }
+        });
+        
+        // Initialize with 2026 content
+        updateYearContent('2026');
     </script>
 </body>
 </html>
