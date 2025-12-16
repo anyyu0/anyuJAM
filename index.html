@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anyu's jam.</title>
+    <title>anyu's jam</title>
     <style>
         * {
             margin: 0;
@@ -18,6 +18,12 @@
             line-height: 1.5;
             padding: 20px;
             min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.light-theme {
+            background-color: #f5f5f5;
+            color: #222;
         }
 
         .container {
@@ -38,12 +44,22 @@
             color: #fff;
             letter-spacing: -1px;
             margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .light-theme .logo {
+            color: #222;
         }
 
         .tagline {
             color: #888;
             font-size: 1rem;
             margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .light-theme .tagline {
+            color: #666;
         }
 
         /* Year Navigation */
@@ -65,9 +81,19 @@
             transition: all 0.2s;
         }
 
+        .light-theme .year-btn {
+            border: 1px solid #ccc;
+            color: #666;
+        }
+
         .year-btn:hover {
             color: #fff;
             border-color: #555;
+        }
+
+        .light-theme .year-btn:hover {
+            color: #222;
+            border-color: #888;
         }
 
         .year-btn.active {
@@ -77,6 +103,12 @@
             font-weight: 600;
         }
 
+        .light-theme .year-btn.active {
+            background: #222;
+            color: #fff;
+            border-color: #222;
+        }
+
         /* Tabs */
         .view-tabs {
             display: flex;
@@ -84,6 +116,10 @@
             margin-bottom: 30px;
             border-bottom: 1px solid #333;
             padding-bottom: 10px;
+        }
+
+        .light-theme .view-tabs {
+            border-bottom: 1px solid #ddd;
         }
 
         .view-btn {
@@ -97,13 +133,26 @@
             border-bottom: 2px solid transparent;
         }
 
+        .light-theme .view-btn {
+            color: #666;
+        }
+
         .view-btn.active {
             color: #fff;
             border-bottom: 2px solid #fff;
         }
 
+        .light-theme .view-btn.active {
+            color: #222;
+            border-bottom: 2px solid #222;
+        }
+
         .view-btn:hover:not(.active) {
             color: #ccc;
+        }
+
+        .light-theme .view-btn:hover:not(.active) {
+            color: #444;
         }
 
         /* Content Sections */
@@ -131,11 +180,42 @@
             background: #181818;
             border-radius: 8px;
             padding: 25px;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .light-theme .diary-entry {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .diary-entry:hover {
             background: #222;
+            transform: translateY(-2px);
+        }
+
+        .light-theme .diary-entry:hover {
+            background: #f9f9f9;
+        }
+
+        /* NEW: Diary Type Label */
+        .entry-type {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #fff;
+            color: #000;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .light-theme .entry-type {
+            background: #222;
+            color: #fff;
         }
 
         .entry-title {
@@ -143,23 +223,44 @@
             font-weight: 600;
             margin-bottom: 5px;
             color: #fff;
+            transition: color 0.3s ease;
+            margin-top: 5px;
         }
 
+        .light-theme .entry-title {
+            color: #222;
+        }
+
+        /* NEW: Different font for artist */
         .entry-artist {
-            color: #888;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #aaa; /* Changed to be more visible */
             font-size: 1rem;
             font-weight: normal;
             margin-left: 8px;
+            transition: color 0.3s ease;
         }
 
+        .light-theme .entry-artist {
+            color: #777; /* Lighter in light theme */
+        }
+
+        /* NEW: Different font and brighter color for description */
         .entry-content {
-            color: #aaa;
+            font-family: 'Georgia', serif;
+            color: #ccc; /* Brighter than before */
             font-size: 1rem;
             line-height: 1.6;
             margin-top: 15px;
+            transition: color 0.3s ease;
         }
 
-        /* Top Picks Section - NEW HORIZONTAL LAYOUT */
+        .light-theme .entry-content {
+            color: #666; /* Darker in light theme */
+        }
+
+        /* Top Picks Section */
         .top-section {
             margin-bottom: 60px;
         }
@@ -169,6 +270,11 @@
             color: #fff;
             margin-bottom: 40px;
             text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .light-theme .section-heading {
+            color: #222;
         }
 
         .top-category {
@@ -181,6 +287,12 @@
             margin-bottom: 25px;
             padding-bottom: 10px;
             border-bottom: 2px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .light-theme .category-title {
+            color: #222;
+            border-bottom: 2px solid #ddd;
         }
 
         .top-items-row {
@@ -199,9 +311,17 @@
             background: #222;
         }
 
+        .light-theme .top-items-row::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
         .top-items-row::-webkit-scrollbar-thumb {
             background: #fff;
             border-radius: 2px;
+        }
+
+        .light-theme .top-items-row::-webkit-scrollbar-thumb {
+            background: #888;
         }
 
         .top-item-card {
@@ -213,10 +333,20 @@
             border-left: 4px solid transparent;
         }
 
+        .light-theme .top-item-card {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
         .top-item-card:hover {
             background: #222;
             transform: translateY(-5px);
             border-left-color: #fff;
+        }
+
+        .light-theme .top-item-card:hover {
+            background: #f9f9f9;
+            border-left-color: #222;
         }
 
         .item-rank {
@@ -225,25 +355,47 @@
             color: #fff;
             margin-bottom: 15px;
             opacity: 0.9;
+            transition: color 0.3s ease;
         }
 
+        .light-theme .item-rank {
+            color: #222;
+        }
+
+        /* CHANGED: Item name and artist on same line */
         .item-name {
             font-size: 1.3rem;
             font-weight: 600;
             color: #fff;
             margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
 
+        /* NEW: Different font for artist in top picks */
         .item-artist {
-            font-size: 1rem;
-            color: #888;
-            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #aaa; /* Brighter color */
+            font-weight: normal;
+            margin-left: 5px;
         }
 
+        .light-theme .item-artist {
+            color: #777;
+        }
+
+        /* NEW: Different font and brighter color for description */
         .item-description {
+            font-family: 'Georgia', serif;
+            color: #ccc; /* Brighter than before */
             font-size: 0.95rem;
-            color: #aaa;
             line-height: 1.5;
+            margin-top: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .light-theme .item-description {
+            color: #666;
         }
 
         /* Footer */
@@ -254,6 +406,34 @@
             border-top: 1px solid #333;
             color: #666;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .light-theme .footer {
+            border-top: 1px solid #ddd;
+            color: #888;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .theme-toggle:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .light-theme .theme-toggle:hover {
+            color: #222;
+            background: rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive */
@@ -287,20 +467,31 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Empty state for 2026 */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+            font-style: italic;
+        }
+
+        .light-theme .empty-state {
+            color: #aaa;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="logo">anyu's jam.</h1>
-            <p class="tagline">the diary of anyu's music.</p>
+            <h1 class="logo">anyu's jam</h1>
+            <p class="tagline">the diary of anyu's music</p>
         </header>
 
         <!-- Year Navigation -->
         <nav class="year-nav">
-            <button class="year-btn active" data-year="2026">2026</button>
-            <button class="year-btn" data-year="2025">2025</button>
-            <button class="year-btn" data-year="2024-below">2024 & below</button>
+            <button class="year-btn" data-year="2026">2026</button>
+            <button class="year-btn active" data-year="2025">2025</button>
         </nav>
 
         <!-- View Tabs -->
@@ -313,107 +504,73 @@
         <div id="diary-view" class="content-section active">
             <div class="diary-section">
                 <div class="diary-entries">
-                    <!-- EASY TO ADD MORE ENTRIES HERE -->
-                    <!-- Copy this block and update the content -->
+                    <!-- Diary Entry: Song -->
                     <div class="diary-entry">
-                        <h3 class="entry-title">Birds of a Feather<span class="entry-artist">by Billie Eilish</span></h3>
-                        <p class="entry-content">Driving beat that stays with you. Perfect for late night drives when you need that extra energy.</p>
+                        <div class="entry-type">song</div>
+                        <h3 class="entry-title">midori<span class="entry-artist">by chilldspot</span></h3>
+                        <p class="entry-content">green dance.</p>
+                    </div>
+					
+                    <!-- Diary Entry: Song -->
+                    <div class="diary-entry">
+                        <div class="entry-type">song</div>
+                        <h3 class="entry-title">it is what it is<span class="entry-artist">by glaive</span></h3>
+                        <p class="entry-content">i guess it is what it is huh?</p>
+                    </div>
+					
+                    <!-- Diary Entry: Song -->
+                    <div class="diary-entry">
+                        <div class="entry-type">song</div>
+                        <h3 class="entry-title">pretty4u<span class="entry-artist">by tiffany day</span></h3>
+                        <p class="entry-content">insane production, were going crazy with this one</p>
+                    </div>
+					
+                    
+                    <!-- Diary Entry: Album -->
+                    <div class="diary-entry">
+                        <div class="entry-type">album</div>
+                        <h3 class="entry-title">handmade<span class="entry-artist">by chilldspot</span></h3>
+                        <p class="entry-content">make me wanna groove with somebody. lets be happy ig? LOL</p>
                     </div>
                     
+                    <!-- Diary Entry: Album -->
                     <div class="diary-entry">
-                        <h3 class="entry-title">Read Your Mind<span class="entry-artist">by Sabrina Carpenter</span></h3>
-                        <p class="entry-content">Catchy pop with clever lyrics. On repeat all week, especially during morning routines.</p>
+                        <div class="entry-type">album</div>
+                        <h3 class="entry-title">y'all<span class="entry-artist">by glaive</span></h3>
+                        <p class="entry-content">fucking insane, just another goated album by glaive.</p>
                     </div>
                     
+                    <!-- Diary Entry: EP -->
                     <div class="diary-entry">
-                        <h3 class="entry-title">The Door<span class="entry-artist">by Teddy Swims</span></h3>
-                        <p class="entry-content">Raw vocals, emotional delivery. Goosebumps every time, especially on rainy days.</p>
+                        <div class="entry-type">ep</div>
+                        <h3 class="entry-title">FOR WHAT ITS WORTH<span class="entry-artist">by imnotvrycreative</span></h3>
+                        <p class="entry-content">its like hearing ericdoa for the first time great EP man.</p>
                     </div>
                     
+                    <!-- Example for adding more entries -->
+                    <!--
                     <div class="diary-entry">
-                        <h3 class="entry-title">Espresso<span class="entry-artist">by Sabrina Carpenter</span></h3>
-                        <p class="entry-content">Upbeat and perfect for summer. The chorus is absolutely addictive.</p>
+                        <div class="entry-type">song/album</div>
+                        <h3 class="entry-title">Title<span class="entry-artist">by Artist</span></h3>
+                        <p class="entry-content">Description here.</p>
                     </div>
-                    
-                    <div class="diary-entry">
-                        <h3 class="entry-title">Not Strong Enough<span class="entry-artist">by boygenius</span></h3>
-                        <p class="entry-content">Harmonies that give you chills every single time. Perfect for reflective moments.</p>
-                    </div>
-                    
-                    <!-- Add more entries by copying above block -->
+                    -->
                 </div>
             </div>
         </div>
 
         <!-- Top Picks View -->
         <div id="tops-view" class="content-section">
-            <!-- 2026 Top Picks -->
-            <div class="top-section" id="2026-tops">
+            <!-- 2026 Top Picks - Empty -->
+            <div class="top-section" id="2026-tops" style="display: none;">
                 <h2 class="section-heading">2026 Top Picks</h2>
-                
-                <!-- Top Songs Row -->
-                <div class="top-category">
-                    <h3 class="category-title">Top Songs</h3>
-                    <div class="top-items-row">
-                        <!-- Song #1 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#1</div>
-                            <div class="item-name">Wallflower</div>
-                            <div class="item-artist">Twice</div>
-                            <div class="item-description">Dreamy synth-pop with nostalgic melodies that transport you to another dimension.</div>
-                        </div>
-                        
-                        <!-- Song #2 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#2</div>
-                            <div class="item-name">Euphoria</div>
-                            <div class="item-artist">NewJeans</div>
-                            <div class="item-description">Upbeat summer anthem with infectious hooks that stay in your head for days.</div>
-                        </div>
-                        
-                        <!-- Song #3 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#3</div>
-                            <div class="item-name">Midnight Rain</div>
-                            <div class="item-artist">Taylor Swift</div>
-                            <div class="item-description">Moody production with Swift's signature storytelling about roads not taken.</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Top Albums Row -->
-                <div class="top-category">
-                    <h3 class="category-title">Top Albums</h3>
-                    <div class="top-items-row">
-                        <!-- Album #1 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#1</div>
-                            <div class="item-name">Wallflower</div>
-                            <div class="item-artist">Twice</div>
-                            <div class="item-description">A cohesive journey through dream pop and synthwave with no skips. Their most mature work yet.</div>
-                        </div>
-                        
-                        <!-- Album #2 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#2</div>
-                            <div class="item-name">Hit Me Hard and Soft</div>
-                            <div class="item-artist">Billie Eilish</div>
-                            <div class="item-description">Dark pop perfection with haunting production and deeply personal lyrics.</div>
-                        </div>
-                        
-                        <!-- Album #3 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#3</div>
-                            <div class="item-name">Short n' Sweet</div>
-                            <div class="item-artist">Sabrina Carpenter</div>
-                            <div class="item-description">Bubblegum pop elevated with clever production and undeniable earworms.</div>
-                        </div>
-                    </div>
+                <div class="empty-state">
+                    <p>No picks for 2026 yet. Check back later!</p>
                 </div>
             </div>
 
             <!-- 2025 Top Picks -->
-            <div class="top-section" id="2025-tops" style="display: none;">
+            <div class="top-section" id="2025-tops">
                 <h2 class="section-heading">2025 Top Picks</h2>
                 
                 <!-- Top Songs Row -->
@@ -423,25 +580,22 @@
                         <!-- Song #1 -->
                         <div class="top-item-card">
                             <div class="item-rank">#1</div>
-                            <div class="item-name">Flowers</div>
-                            <div class="item-artist">Miley Cyrus</div>
-                            <div class="item-description">Empowering breakup anthem with an unforgettable disco-inspired beat.</div>
+                            <div class="item-name">midori <span class="item-artist">by chilldspot</span></div>
+                            <div class="item-description">green dance.</div>
                         </div>
                         
                         <!-- Song #2 -->
                         <div class="top-item-card">
                             <div class="item-rank">#2</div>
-                            <div class="item-name">What Was I Made For?</div>
-                            <div class="item-artist">Billie Eilish</div>
-                            <div class="item-description">Hauntingly beautiful ballad that captures existential longing perfectly.</div>
+                            <div class="item-name">it is what it is <span class="item-artist">by glaive</span></div>
+                            <div class="item-description">i guess it is what it is huh?</div>
                         </div>
                         
                         <!-- Song #3 -->
                         <div class="top-item-card">
                             <div class="item-rank">#3</div>
-                            <div class="item-name">Not Strong Enough</div>
-                            <div class="item-artist">boygenius</div>
-                            <div class="item-description">Three-part harmonies that give you chills every single listen.</div>
+                            <div class="item-name">pretty4u <span class="item-artist">by tiffany day</span></div>
+                            <div class="item-description">insane production, were going crazy with this one</div>
                         </div>
                     </div>
                 </div>
@@ -453,90 +607,22 @@
                         <!-- Album #1 -->
                         <div class="top-item-card">
                             <div class="item-rank">#1</div>
-                            <div class="item-name">Endless Summer Vacation</div>
-                            <div class="item-artist">Miley Cyrus</div>
-                            <div class="item-description">A sun-drenched journey through disco, pop, and rock influences.</div>
+                            <div class="item-name">handmade <span class="item-artist">by chilldspot</span></div>
+                            <div class="item-description">make me wanna groov with somebody. lets be happy ig? LOL</div>
                         </div>
                         
                         <!-- Album #2 -->
                         <div class="top-item-card">
                             <div class="item-rank">#2</div>
-                            <div class="item-name">the record</div>
-                            <div class="item-artist">boygenius</div>
-                            <div class="item-description">Indie rock perfection with songwriting that cuts straight to the heart.</div>
+                            <div class="item-name">y'all <span class="item-artist">by glaive</span></div>
+                            <div class="item-description">fucking insane, just another goated album by glaive.</div>
                         </div>
                         
                         <!-- Album #3 -->
                         <div class="top-item-card">
                             <div class="item-rank">#3</div>
-                            <div class="item-name">Ocean Blvd</div>
-                            <div class="item-artist">Lana Del Rey</div>
-                            <div class="item-description">Cinematic storytelling with her most personal and vulnerable lyrics yet.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2024 & Below Top Picks -->
-            <div class="top-section" id="2024-below-tops" style="display: none;">
-                <h2 class="section-heading">2024 & Below Top Picks</h2>
-                
-                <!-- Top Songs Row -->
-                <div class="top-category">
-                    <h3 class="category-title">Top Songs</h3>
-                    <div class="top-items-row">
-                        <!-- Song #1 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#1</div>
-                            <div class="item-name">As It Was</div>
-                            <div class="item-artist">Harry Styles</div>
-                            <div class="item-description">Nostalgic synth-pop about change and acceptance. Impossible not to dance to.</div>
-                        </div>
-                        
-                        <!-- Song #2 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#2</div>
-                            <div class="item-name">Break My Soul</div>
-                            <div class="item-artist">Beyoncé</div>
-                            <div class="item-description">House music revival with an empowering message about liberation.</div>
-                        </div>
-                        
-                        <!-- Song #3 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#3</div>
-                            <div class="item-name">Good 4 U</div>
-                            <div class="item-artist">Olivia Rodrigo</div>
-                            <div class="item-description">Pop-punk perfection with angsty lyrics that hit just right.</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Top Albums Row -->
-                <div class="top-category">
-                    <h3 class="category-title">Top Albums</h3>
-                    <div class="top-items-row">
-                        <!-- Album #1 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#1</div>
-                            <div class="item-name">Harry's House</div>
-                            <div class="item-artist">Harry Styles</div>
-                            <div class="item-description">Warm, intimate pop that feels like home. His most cohesive album.</div>
-                        </div>
-                        
-                        <!-- Album #2 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#2</div>
-                            <div class="item-name">RENAISSANCE</div>
-                            <div class="item-artist">Beyoncé</div>
-                            <div class="item-description">A celebration of dance music history and Black queer culture. Flawless.</div>
-                        </div>
-                        
-                        <!-- Album #3 -->
-                        <div class="top-item-card">
-                            <div class="item-rank">#3</div>
-                            <div class="item-name">SOUR</div>
-                            <div class="item-artist">Olivia Rodrigo</div>
-                            <div class="item-description">Teenage angst perfected. Every song is a gut punch in the best way.</div>
+                            <div class="item-name">FOR WHAT ITS WORTH <span class="item-artist">by imnotvrycreative</span></div>
+                            <div class="item-description">its like hearing ericdoa for the first time great EP man.</div>
                         </div>
                     </div>
                 </div>
@@ -544,11 +630,26 @@
         </div>
 
         <footer class="footer">
-            <p>spotjam. • personal music collection • white theme</p>
+            <p>anyu's jam • personal music collection • <span id="current-theme">white theme</span><button class="theme-toggle" id="theme-toggle">(click to change)</button></p>
         </footer>
     </div>
 
     <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = document.getElementById('current-theme');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                currentTheme.textContent = 'white theme';
+            } else {
+                body.classList.add('light-theme');
+                currentTheme.textContent = 'dark theme';
+            }
+        });
+        
         // Year Navigation
         const yearBtns = document.querySelectorAll('.year-btn');
         
@@ -601,7 +702,10 @@
                 });
                 
                 // Show the selected year section
-                document.getElementById(`${year}-tops`).style.display = 'block';
+                const yearSection = document.getElementById(`${year}-tops`);
+                if (yearSection) {
+                    yearSection.style.display = 'block';
+                }
             }
             
             // For Diary view, we would filter entries by year
@@ -620,13 +724,12 @@
                 const card = e.target.closest('.top-item-card');
                 const rank = card.querySelector('.item-rank').textContent;
                 const name = card.querySelector('.item-name').textContent;
-                const artist = card.querySelector('.item-artist').textContent;
-                console.log(`Clicked: ${rank} ${name} by ${artist}`);
+                console.log(`Clicked: ${rank} ${name}`);
             }
         });
         
-        // Initialize with 2026 content
-        updateYearContent('2026');
+        // Initialize with 2025 content active
+        updateYearContent('2025');
     </script>
 </body>
 </html>
